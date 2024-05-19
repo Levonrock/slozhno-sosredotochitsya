@@ -6,19 +6,15 @@
   flex-direction: column;
   padding: 10px 10px 0 10px;
   color: var(--accent-color, #ff0070);
-  font-family: var(--main-font, "IBM Plex mono", sans-serif);
-  background: url(../images/cover-image-dark.png);
-  background-color: var(--bc-color, #000028);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  font-family: var(--main-font, "IBM Plex mono", monospace);
+  background: var(--background-image, url(../images/cover-image-dark.png)) center / cover no-repeat fixed var(--bc-color, #000028);
 }
 
 .header {
   position: relative;
   display: grid;
   margin-block-end: 40px;
+  block-size: max(668px + var(--margin-block-end, 18.5%), 100vh);
 }
 
 .decorated-zone::before {
@@ -111,9 +107,9 @@
 
 .header__title {
   margin-block-start: 19.6%;
-  color: var(--header-title-color, #fe42fe);
+  color: var(--header-title-color, #DB00FF);
   font-weight: 700;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: var(--logo-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   line-height: 83%;
   text-shadow: 4px 4px 0 #ff0070;
 }
@@ -130,10 +126,20 @@
 
 .header .title-decor {
   margin-block-start: 15%;
-  margin-block-end: 18.5%;
+  margin-block-end: var(--margin-blockend,18.5%);
 }
 
-@media (768px <=width < 1024px) {
+@media (min-width: 768px) {
+  .page {
+    padding-inline-start: 0px;
+    padding-inline-end: 20px;
+    padding-block-start: 20px;
+  }
+
+  .header {
+    margin-block-end: 77px;
+  }
+
   .header__theme-menu {
     margin-block-start: 22.8%;
   }
@@ -144,17 +150,12 @@
 
   .header .title-decor {
     margin-block-start: 21.6%;
-    margin-block-end: 24.5%;
+    margin-block-end: 22%;
     max-inline-size: min(364px, 100%);
-  }
-
-  .header.decorated-zone::after {
-    inset-block-end: 21px;
-    inset-inline-start: 22px;
   }
 }
 
-@media (width >=1024px) {
+@media (min-width: 1024px) {
   .header__theme-menu {
     justify-self: center;
     margin-block-start: 0px;
@@ -172,31 +173,11 @@
 
   .header .title-decor {
     margin-block-start: 11.2%;
-    margin-block-end: 13.5%;
+    margin-block-end: 11.5%;
     max-inline-size: min(491px, 100%);
   }
-
-  .header.decorated-zone::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
-  }
 }
 
-@media (width >=768px) {
-  .page {
-    padding-inline-start: 0px;
-    padding-inline-end: 20px;
-    padding-block-start: 20px;
-  }
-
-  .header {
-    margin-block-end: 60px;
-  }
-
-  .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-}
 
 /*стили для майн*/
 
@@ -227,47 +208,45 @@
   margin-block-start: 20px;
 }
 
-@media (768px <=width < 1024px) {
+@media (min-width: 768px) {
 
-  .block:first-of-type,
-  .block:nth-of-type(3) {
+  .content {
+    gap: 80px;
+    margin-block-end: 80px;
+  }
+
+  .block {
+    padding-inline-start: 22px;
+  }
+
+  .section-why,
+  .section-advices {
     display: grid;
     grid-template-columns: min(236px, 100%) 1fr;
     gap: 20px;
   }
 
-  .block:nth-of-type(2) .section__title {
+  .section-causes .section__title {
     width: min(236px, 100%);
   }
 }
 
-@media (width >=1024px) {
+@media (min-width:1024px) {
 
-  .block:first-of-type,
-  .block:nth-of-type(3) {
+  .section-why,
+  .section-advices {
     display: grid;
     grid-template-columns: min(315px, 100%) 1fr;
     gap: 20px;
   }
 
-  .block:nth-of-type(2) .section__title {
+  .section-causes .section__title {
     width: min(315px, 100%);
   }
 
-  .block:nth-of-type(2) .article__list {
+  .section-causes .article__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (width >=768px) {
-  .content {
-    gap: 80px;
-    margin-block-end: 60px;
-  }
-
-  .block {
-    padding-inline-start: 22px;
   }
 }
 
@@ -296,7 +275,7 @@ a.text-article-link {
 
 @media (hover: hover) {
   a.text-article-link:hover {
-    border-block-end: 1px solid var(--text-article-link-hover-color, #f1b2ce);
+    border-block-end: 1px solid currentColor;
     cursor: pointer;
   }
 }
@@ -306,7 +285,7 @@ a.text-article-link:focus {
 }
 
 a.text-article-link:focus-visible {
-  outline: 1px solid var(--text-article-link-focus-color, #f1b2ce);
+  outline: 1px solid currentColor;
 }
 
 .block-image {
@@ -324,7 +303,7 @@ a.text-article-link:focus-visible {
   height: auto;
 }
 
-@media (width >=768px) {
+@media (min-width: 768px) {
   .block-image {
     gap: 20px;
   }
@@ -362,52 +341,51 @@ a.text-article-link:focus-visible {
 }
 
 .footer {
+  margin-block: 10px;
+  padding-bottom: 7px;
   position: relative;
   display: grid;
+  block-size: max(668px + var(--padding-block-footer-title, 71.5%) / 2, 100vb);
   justify-content: center;
   text-align: center;
 }
 
-footer.decorated-zone::before {
-  inset-block-start: 10px;
-}
-
 .footer__title {
-  padding-block: 73.8%;
-  color: var(--header-title-color, #fe42fe);
+  padding-block: var(--padding-block-footer-title, 71.5%);
+  color: var(--header-title-color, #DB00FF);
   font-weight: 700;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: var(--logo-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
-@media (768px <=width < 1024px) {
-  .footer__title {
-    padding-block: 121.2%;
-  }
-}
+@media (min-width: 768px) {
+    .footer {
+      margin-block: 0;
+      padding-bottom: 0;
+    }
 
-@media (width >=1024px) {
   .footer__title {
-    padding-block: 60%;
-  }
-}
-
-@media (width >=768px) {
-  .footer {
+    position: relative;
     inset-inline-start: 10px;
   }
 
-  .footer.decorated-zone::before {
-    inset-block-start: 20px;
-    inset-inline-end: 10px;
+  .decorated-zone::after {
+    inset-inline-start: 20px;
+    inset-block-end: 3px;
   }
-
-  .footer.decorated-zone::after {
-    inset-block-end: 24px;
-    inset-inline-start: 10px;
+  .footer__title, 
+  .header__title {
+    --logo-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    --padding-block-footer-title: 115.8%
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .footer__title {
+    --padding-block-footer-title: 56.3%;
   }
 }

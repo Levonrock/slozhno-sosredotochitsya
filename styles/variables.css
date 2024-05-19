@@ -4,13 +4,14 @@
 */
 
 :root {
+  --background-image: url(../images/cover-image-dark.png);
   --main-font: "IBM Plex mono";
   --bc-color: #000028;
   --decor-title-color: #000028;
   --article-text-color: #f1b2ce;
   --accent-color: #ff0070;
   --decor-item-border-color: #ff0070;
-  --header-title-color: #fe42fe;
+  --header-title-color: #DB00FF;
   --section-title-color: #ff0070;
   --button-color: #ff0070;
   --button-hover-border-color: rgba(255, 0, 112, 0.4);
@@ -19,4 +20,7 @@
   --text-article-link-shadow-color: #ff0070;
   --text-article-link-focus-color: #f1b2ce;
   --text-article-link-hover-color: #f1b2ce;
+  --logo-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --margin-block-end: 18.5%;
+  --padding-block-footer-title: 71.5%;
 }
