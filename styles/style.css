@@ -13,8 +13,8 @@
 .header {
   position: relative;
   display: grid;
-  margin-block-end: 40px;
-  block-size: max(668px + var(--margin-block-end, 18.5%), 100vh);
+  margin-block-end: 30px;
+  min-block-size: max(668px, 100vb);
 }
 
 .decorated-zone::before {
@@ -35,7 +35,7 @@
   border-inline-start: 1px solid var(--decor-item-border-color, #ff0070);
   border-block-end: 1px solid var(--decor-item-border-color, #ff0070);
   background-color: transparent;
-  inset-block-end: 10px;
+  inset-block-end: 20px;
   inset-inline-start: 0px;
   block-size: 24px;
   inline-size: 24px;
@@ -117,6 +117,7 @@
 .title-decor {
   justify-self: end;
   color: var(--decor-title-color, #000028);
+  font-weight: 700;
   font-size: 18px;
   line-height: 130%;
   background-color: var(--accent-color, #ff0070);
@@ -126,7 +127,7 @@
 
 .header .title-decor {
   margin-block-start: 15%;
-  margin-block-end: var(--margin-blockend,18.5%);
+  margin-block-end: 22%;
 }
 
 @media (min-width: 768px) {
@@ -204,6 +205,10 @@
   margin-block-start: 10px;
 }
 
+.text-article + .text-article {
+  margin-block-start: 10px;
+}
+
 .title-decor+.article__list {
   margin-block-start: 20px;
 }
@@ -235,9 +240,7 @@
 
   .section-why,
   .section-advices {
-    display: grid;
     grid-template-columns: min(315px, 100%) 1fr;
-    gap: 20px;
   }
 
   .section-causes .section__title {
@@ -341,11 +344,11 @@ a.text-article-link:focus-visible {
 }
 
 .footer {
-  margin-block: 10px;
+  margin-block: 7px;
   padding-bottom: 7px;
   position: relative;
   display: grid;
-  block-size: max(668px + var(--padding-block-footer-title, 71.5%) / 2, 100vb);
+  min-block-size: max(668px, 100vb);
   justify-content: center;
   text-align: center;
 }
@@ -360,14 +363,10 @@ a.text-article-link:focus-visible {
 
 @media (min-width: 768px) {
     .footer {
-      margin-block: 0;
+      margin-block-start: 1px;
       padding-bottom: 0;
+      padding-inline-start: 20px;
     }
-
-  .footer__title {
-    position: relative;
-    inset-inline-start: 10px;
-  }
 
   .decorated-zone::after {
     inset-inline-start: 20px;
