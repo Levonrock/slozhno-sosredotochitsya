@@ -115,6 +115,7 @@
 }
 
 .title-decor {
+  block-size: fit-content;
   justify-self: end;
   color: var(--decor-title-color, #000028);
   font-weight: 700;
