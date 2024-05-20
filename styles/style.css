@@ -381,7 +381,8 @@ a.text-article-link:focus-visible {
   }
 
   .footer__title {
-    --padding-block-footer-title: 115.8%
+    --padding-block-footer-title: 115.8%;
+    align-self: center;
   }
 
 }
