@@ -6,10 +6,11 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   display: flex;
   flex-direction: column;
-  padding: 10px 10px 0 10px;
+  padding: 10px 10px 0px 10px;
   color: var(--accent-color, #ff0070);
   font-family: var(--main-font, "IBM Plex mono", monospace);
-  background: var(--background-image, url(../images/cover-image-dark.png)) center / cover no-repeat fixed var(--bc-color, #000028);
+  background: var(--background-image, url(../images/cover-image-dark.png))
+    center / cover no-repeat fixed var(--bc-color, #000028);
 }
 
 .header {
@@ -109,7 +110,7 @@
 
 .header__title {
   margin-block-start: 19.6%;
-  color: var(--header-title-color, #DB00FF);
+  color: var(--header-title-color, #db00ff);
   font-weight: 700;
   font-size: var(--logo-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   line-height: 83%;
@@ -141,7 +142,7 @@
   }
 
   .header {
-    margin-block-end: 77px;
+    margin-block-end: 40px;
   }
 
   .header__theme-menu {
@@ -149,17 +150,21 @@
   }
 
   .header__title {
-    margin-block-start: 23.7%;
+    margin-block-start: 22.7%;
   }
 
   .header .title-decor {
     margin-block-start: 21.6%;
-    margin-block-end: 22%;
+    margin-block-end: 26%;
     max-inline-size: min(364px, 100%);
   }
 }
 
 @media (min-width: 1024px) {
+  .header {
+    padding-block-end: 20px;
+  }
+
   .header__theme-menu {
     justify-self: center;
     margin-block-start: 0px;
@@ -172,16 +177,15 @@
   }
 
   .header__title {
-    margin-block-start: 27.39%;
+    margin-block-start: 23.39%;
   }
 
   .header .title-decor {
-    margin-block-start: 11.2%;
-    margin-block-end: 11.5%;
+    margin-block-start: 6.9%;
+    margin-block-end: 9.5%;
     max-inline-size: min(491px, 100%);
   }
 }
-
 
 /*стили для майн*/
 
@@ -204,7 +208,7 @@
   gap: 20px;
 }
 
-.title-decor+.text-article {
+.title-decor + .text-article {
   margin-block-start: 10px;
 }
 
@@ -212,12 +216,11 @@
   margin-block-start: 10px;
 }
 
-.title-decor+.article__list {
+.title-decor + .article__list {
   margin-block-start: 20px;
 }
 
 @media (min-width: 768px) {
-
   .content {
     gap: 80px;
     margin-block-end: 80px;
@@ -239,8 +242,7 @@
   }
 }
 
-@media (min-width:1024px) {
-
+@media (min-width: 1024px) {
   .section-why,
   .section-advices {
     grid-template-columns: min(315px, 100%) 1fr;
@@ -324,7 +326,10 @@ a.text-article-link:focus-visible {
   .image-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(min(142px, 100%) 1fr) repeat(2, max(355px, 100%) max(237px, 100%));
+    grid-template-rows: minmax(min(142px, 100%) 1fr) repeat(
+        2,
+        max(355px, 100%) max(237px, 100%)
+      );
     gap: 20px;
   }
 
@@ -353,42 +358,41 @@ a.text-article-link:focus-visible {
   display: grid;
   min-block-size: max(668px, 100vb);
   justify-content: center;
-  text-align: center;
 }
-
 .footer__title {
   padding-block: var(--padding-block-footer-title, 71.5%);
-  color: var(--header-title-color, #DB00FF);
+  color: var(--header-title-color, #db00ff);
   font-weight: 700;
   font-size: var(--logo-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
 @media (min-width: 768px) {
-    .footer {
-      margin-block-start: 1px;
-      padding-bottom: 0;
-      padding-inline-start: 20px;
-    }
+  .footer {
+    margin-block-start: 1px;
+    padding-bottom: 0;
+    padding-inline-start: 20px;
+    padding-block-end: 35px;
+  }
 
   .decorated-zone::after {
     inset-inline-start: 20px;
-    inset-block-end: 3px;
+    inset-block-end: 40px;
   }
-  .footer__title, 
+  .footer__title,
   .header__title {
     --logo-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .footer__title {
-    --padding-block-footer-title: 115.8%;
+    margin-block-end: ;
     align-self: center;
   }
-
 }
 
 @media (min-width: 1024px) {
   .footer__title {
     --padding-block-footer-title: 56.3%;
+    align-self: center;
   }
 }
