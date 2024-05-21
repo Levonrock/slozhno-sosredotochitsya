@@ -6,7 +6,7 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   display: flex;
   flex-direction: column;
-  padding: 10px 10px 0px 10px;
+  padding: 0 10px 0px 10px;
   color: var(--accent-color, #ff0070);
   font-family: var(--main-font, "IBM Plex mono", monospace);
   background: var(--background-image, url(../images/cover-image-dark.png))
@@ -16,7 +16,7 @@
 .header {
   position: relative;
   display: grid;
-  margin-block-end: 30px;
+  margin-block-end: 40px;
   min-block-size: max(668px, 100vb);
 }
 
@@ -28,6 +28,7 @@
   border-block-start: 1px solid var(--decor-item-border-color, #ff0070);
   background-color: transparent;
   inset-inline-end: 0px;
+  inset-block-start: 10px;
   inline-size: 24px;
   block-size: 24px;
 }
@@ -38,7 +39,7 @@
   border-inline-start: 1px solid var(--decor-item-border-color, #ff0070);
   border-block-end: 1px solid var(--decor-item-border-color, #ff0070);
   background-color: transparent;
-  inset-block-end: 20px;
+  inset-block-end: 10px;
   inset-inline-start: 0px;
   block-size: 24px;
   inline-size: 24px;
@@ -68,7 +69,7 @@
 
 .header__theme-menu {
   justify-self: end;
-  margin-block-start: 18%;
+  margin-block-start: 21%;
 }
 
 .header__theme-menu-list {
@@ -131,15 +132,13 @@
 
 .header .title-decor {
   margin-block-start: 15%;
-  margin-block-end: 22%;
+  margin-block-end: 18%;
 }
 
 @media (min-width: 768px) {
   .page {
-    padding-block-start: 0px;
     padding-inline-start: 0px;
     padding-inline-end: 20px;
-    
   }
 
   .header {
@@ -195,7 +194,7 @@
   display: grid;
   grid-template-columns: minmax(min(355px, 100%), 1fr);
   gap: 50px;
-  margin-block-end: 40px;
+  margin-block-end: 38px;
 }
 
 .block {
@@ -351,17 +350,15 @@ a.text-article-link:focus-visible {
 }
 
 .footer {
-  margin-block: 7px;
-  padding-bottom: 7px;
   position: relative;
   display: grid;
   min-block-size: max(668px, 100vb);
   justify-content: center;
 }
 .footer__title {
-  padding-block: var(--padding-block-footer-title, 71.5%);
   color: var(--header-title-color, #db00ff);
   font-weight: 700;
+  align-self: center;
   font-size: var(--logo-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
@@ -386,15 +383,10 @@ a.text-article-link:focus-visible {
   .header__title {
     --logo-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-
-  .footer__title {
-    align-self: center;
-  }
 }
 
 @media (min-width: 1024px) {
   .footer__title {
-    --padding-block-footer-title: 56.3%;
-    align-self: center;
+    padding-block: var(--padding-block-footer-title, 56.3%);
   }
 }
