@@ -52,6 +52,7 @@
   font-size: 18px;
   text-transform: uppercase;
   inset-inline-end: 1.6em;
+  inset-block-start: 10px;
 }
 
 .header__icon::after {
@@ -146,6 +147,10 @@
     margin-block-end: 60px;
   }
 
+  .header__icon {
+    inset-block-start: 20px;
+  }
+
   .header__theme-menu {
     margin-block-start: 22.8%;
   }
@@ -172,9 +177,8 @@
   }
 
   .header__theme-menu-list {
-    position: relative;
     flex-direction: row;
-    inset-inline-start: 10px;
+    padding-inline-start: 10px;
   }
 
   .header__title {
