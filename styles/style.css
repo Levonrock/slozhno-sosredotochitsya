@@ -136,13 +136,15 @@
 
 @media (min-width: 768px) {
   .page {
+    padding-block-start: 0px;
     padding-inline-start: 0px;
     padding-inline-end: 20px;
-    padding-block-start: 20px;
+    
   }
 
   .header {
-    margin-block-end: 40px;
+    padding-block-start: 20px;
+    margin-block-end: 60px;
   }
 
   .header__theme-menu {
@@ -155,7 +157,7 @@
 
   .header .title-decor {
     margin-block-start: 21.6%;
-    margin-block-end: 26%;
+    margin-block-end: 24%;
     max-inline-size: min(364px, 100%);
   }
 }
@@ -182,7 +184,7 @@
 
   .header .title-decor {
     margin-block-start: 6.9%;
-    margin-block-end: 9.5%;
+    margin-block-end: 7.5%;
     max-inline-size: min(491px, 100%);
   }
 }
@@ -223,7 +225,7 @@
 @media (min-width: 768px) {
   .content {
     gap: 80px;
-    margin-block-end: 80px;
+    margin-block-end: 60px;
   }
 
   .block {
@@ -326,10 +328,7 @@ a.text-article-link:focus-visible {
   .image-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(min(142px, 100%) 1fr) repeat(
-        2,
-        max(355px, 100%) max(237px, 100%)
-      );
+    grid-template-rows: minmax(min(142px, 100%) 1fr) repeat(2,max(355px, 100%) max(237px, 100%));
     gap: 20px;
   }
 
@@ -369,15 +368,19 @@ a.text-article-link:focus-visible {
 
 @media (min-width: 768px) {
   .footer {
-    margin-block-start: 1px;
+    margin-block: 0;
+    padding-block-start: 5px;
     padding-bottom: 0;
     padding-inline-start: 20px;
-    padding-block-end: 35px;
   }
+
+.decorated-zone::before {
+  inset-block-start: 20px;
+}
 
   .decorated-zone::after {
     inset-inline-start: 20px;
-    inset-block-end: 40px;
+    inset-block-end: 20px;
   }
   .footer__title,
   .header__title {
@@ -385,7 +388,6 @@ a.text-article-link:focus-visible {
   }
 
   .footer__title {
-    margin-block-end: ;
     align-self: center;
   }
 }
